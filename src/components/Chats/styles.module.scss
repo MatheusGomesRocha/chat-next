@@ -1,4 +1,37 @@
 .container {
   width: 32.3rem;
   height: 100vh;
+  padding: 0 3.2rem;
+  background-color: #fbfaff;
+
+  .header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 2.5rem;
+    width: auto;
+
+    h2 {
+      font-size: 2.25rem;
+      margin-left: 1.5rem;
+      font-family: "Montserrat", sans-serif;
+      font-weight: bold;
+    }
+
+    .messageNotRead {
+      background-color: var(--red);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 1.5rem;
+      height: 1.5rem;
+      border-radius: 20px;
+      margin-left: 1.5rem;
+
+      span {
+        color: var(--white);
+        font-size: 0.8rem;
+      }
+    }
+  }
 }
