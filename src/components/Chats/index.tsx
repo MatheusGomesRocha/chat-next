@@ -1,5 +1,5 @@
 import styles from './styles.module.scss';
-import { BiMenuAltLeft } from 'react-icons/bi';
+import { BiMenuAltLeft, BiSearchAlt2 } from 'react-icons/bi';
 
 export default function Chats() {
     return(
@@ -12,6 +12,11 @@ export default function Chats() {
                 <div className={styles.messageNotRead}>
                     <span>6</span>
                 </div>
+            </div>
+
+            <div className={styles.searchArea}>
+                <BiSearchAlt2 color="#B2B2B2" size={20} />
+                <input placeholder="Search pepole, groups & messages" />
             </div>
         </div>
     )
