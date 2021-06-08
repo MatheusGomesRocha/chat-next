@@ -4,6 +4,33 @@ import { RiMessage2Fill } from 'react-icons/ri';
 import { FiPhone, FiFileText } from 'react-icons/fi';
 import { TiContacts } from 'react-icons/ti';
 
+let personalMessagesArray = [
+    {id: 1, userImg: require('../../assets/img/user1.png'), userName: 'Gabriel Ferreira', lastMessageTime: '15 min', lastMessageContent: 'Eaí mano, tu fez aquele negócio lá que te pedi ontem?', read: true, notReadMessagesValue: 0, online: false},
+    {id: 2, userImg: require('../../assets/img/user3.png'), userName: 'Gabriel Aids', lastMessageTime: '1 hour', lastMessageContent: 'Eaí mano, tu fez aquele negócio lá que te pedi ontem?', read: false, notReadMessagesValue: 4, online: true},
+    {id: 3, userImg: require('../../assets/img/user2.png'), userName: 'Toin churrasqueiro', lastMessageTime: 'yesterday', lastMessageContent: 'Eaí mano, tu fez aquele negócio lá que te pedi ontem?', read: true, notReadMessagesValue: 0, online: true},
+];
+
+let groupMessagesArray = [
+    {
+        id: 1, 
+        groupName: 'Solitários e comprando fiado', 
+        usersOnGroup: [require('../../assets/img/user1.png'), require('../../assets/img/user2.png')], 
+        lastMessageTime: '7 min', 
+        lastMessageContent: 'Eaí mano, tu fez aquele negócio lá que te pedi ontem?', 
+        read: true,
+        notReadMessagesValue: 0
+    },
+    {
+        id: 2, 
+        groupName: 'Trabalho', 
+        usersOnGroup: [require('../../assets/img/user3.png'), require('../../assets/img/user1.png')], 
+        lastMessageTime: '20 min', 
+        lastMessageContent: 'Eaí mano, tu fez aquele negócio lá que te pedi ontem?', 
+        read: false,
+        notReadMessagesValue: 10
+    },
+];
+
 export default function Chats() {
     return(
         <div className={styles.container}>
