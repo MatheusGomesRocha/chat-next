@@ -27,10 +27,28 @@ let groupMessagesArray = [
         id: 2, 
         groupName: 'Trabalho', 
         usersOnGroup: ['/user6.jpg', '/user5.jpg'], 
-        lastMessageTime: '20 min', 
+        lastMessageTime: 'yesterday', 
         lastMessageContent: 'Eaí mano, tu fez aquele negócio lá que te pedi ontem?', 
         read: false,
         notReadMessagesValue: 10
+    },
+    {
+        id: 3, 
+        groupName: 'Comilança solta', 
+        usersOnGroup: ['/user1.png', '/user3.jpg'], 
+        lastMessageTime: '20 min', 
+        lastMessageContent: 'Eaí mano, tu fez aquele negócio lá que te pedi ontem?', 
+        read: false,
+        notReadMessagesValue: 5
+    },
+    {
+        id: 4, 
+        groupName: 'Fofoca', 
+        usersOnGroup: ['/user5.jpg', '/user2.jpg'], 
+        lastMessageTime: '20 min', 
+        lastMessageContent: 'Eaí mano, tu fez aquele negócio lá que te pedi ontem?', 
+        read: true,
+        notReadMessagesValue: 0
     },
 ];
 
@@ -56,6 +74,42 @@ export default function Chats() {
                                     <div className={styles.topAreaInfo}>
                                         <span className={styles.userName}>{message.userName}</span>
                                         {message.online && <div className={styles.onlineIndicator} />}
+                                        <span className={styles.lastMessageTime}>{message.lastMessageTime}</span>
+                                    </div>
+
+                                    <div className={styles.bottomAreaInfo}>
+                                        <p className={!message.read && styles.lastMessageContent}>{message.lastMessageContent}</p>
+                                        {!message.read && 
+                                            <div className={styles.notReadIndicator}>
+                                                <span>{message.notReadMessagesValue}</span>
+                                            </div>
+                                        }
+                                    </div>
+                                </div>
+                            </section>
+                        )
+                    })}
+                </div>
+            </section>
+        )
+    }
+
+    const GroupMessagesArrayComponent = () => {
+        return(
+            <section className={styles.messageArea}>
+                <span className={styles.title}>Group Messages</span>
+
+                <div className={styles.messageArray}>
+                    {groupMessagesArray.map((message) => {
+                        return(
+                            <section key={message.id} className={message.id === 2 && styles.messageIsSelected}>
+                                <div className={styles.imgGroup}>
+                                    <img src="/user1.png" />
+                                </div>
+
+                                <div className={styles.column}>
+                                    <div className={styles.topAreaInfo}>
+                                        <span className={styles.userName}>{message.groupName}</span>
                                         <span className={styles.lastMessageTime}>{message.lastMessageTime}</span>
                                     </div>
 
@@ -117,6 +171,8 @@ export default function Chats() {
 
             <section className={styles.messagesArea}>
                 <PersonalMessagesArrayComponent />
+
+                <GroupMessagesArrayComponent />
             </section>
         </div>
     )

@@ -2,6 +2,7 @@
   width: 32.3rem;
   height: 100vh;
   background-color: #fbfaff;
+  overflow-y: scroll;
 
   .header {
     display: flex;
@@ -9,7 +10,7 @@
     align-items: center;
     margin-top: 2rem;
     width: auto;
-    padding: 0 3.2rem;
+    padding: 0 2rem;
 
     h2 {
       font-size: 2.25rem;
@@ -42,7 +43,7 @@
     padding-left: 20px;
     height: 3rem;
     border-radius: 25px;
-    margin: 2rem 3.2rem 0 3.2rem;
+    margin: 2rem;
 
     input {
       flex: 1;
@@ -67,7 +68,7 @@
     align-items: center;
     justify-content: space-between;
     margin-top: 2rem;
-    padding: 0 3.2rem;
+    padding: 0 2rem;
 
     div {
       display: flex;
@@ -87,10 +88,13 @@
     margin-top: 2rem;
 
     .messageArea {
+      margin: 2rem 0;
+
       .title {
         color: var(--black);
+        font-weight: bold;
         font-size: 0.85rem;
-        margin: 0 3.2rem;
+        margin: 0 2rem;
       }
 
       .messageArray {
@@ -102,9 +106,12 @@
           align-items: center;
           cursor: pointer;
           height: 6rem;
-          border-bottom: 1px solid var(--gray-500);
-          padding: 0 3.2rem;
+          padding: 0 2rem;
           transition: 0.25s;
+
+          & + section {
+            border-top: 1px solid var(--gray-500);
+          }
 
           &:hover {
             background: rgba(59, 0, 255, 0.03);
@@ -126,6 +133,7 @@
           }
 
           .column {
+            width: 100%;
           }
 
           .topAreaInfo {
