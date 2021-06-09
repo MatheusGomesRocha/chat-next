@@ -1,20 +1,23 @@
 import styles from './styles.module.scss';
+import Image from 'next/image';
+
 import { BiMenuAltLeft, BiSearchAlt2 } from 'react-icons/bi';
 import { RiMessage2Fill } from 'react-icons/ri';
 import { FiPhone, FiFileText } from 'react-icons/fi';
 import { TiContacts } from 'react-icons/ti';
 
+
 let personalMessagesArray = [
-    {id: 1, userImg: require('../../assets/img/user1.png'), userName: 'Gabriel Ferreira', lastMessageTime: '15 min', lastMessageContent: 'Eaí mano, tu fez aquele negócio lá que te pedi ontem?', read: true, notReadMessagesValue: 0, online: false},
-    {id: 2, userImg: require('../../assets/img/user3.png'), userName: 'Gabriel Aids', lastMessageTime: '1 hour', lastMessageContent: 'Eaí mano, tu fez aquele negócio lá que te pedi ontem?', read: false, notReadMessagesValue: 4, online: true},
-    {id: 3, userImg: require('../../assets/img/user2.png'), userName: 'Toin churrasqueiro', lastMessageTime: 'yesterday', lastMessageContent: 'Eaí mano, tu fez aquele negócio lá que te pedi ontem?', read: true, notReadMessagesValue: 0, online: true},
+    {id: 1, userImg: "/user1.png", userName: 'Gabriel Ferreira', lastMessageTime: '15 min', lastMessageContent: 'Eaí mano, tu fez aquele negócio lá que te pedi ontem?', read: true, notReadMessagesValue: 0, online: false},
+    {id: 2, userImg: '/user3.jpg', userName: 'Gabriel Aids', lastMessageTime: '1 hour', lastMessageContent: 'Eaí mano, tu fez aquele negócio lá que te pedi ontem?', read: false, notReadMessagesValue: 4, online: true},
+    {id: 3, userImg: '/user2.jpg', userName: 'Toin churrasqueiro', lastMessageTime: 'yesterday', lastMessageContent: 'Eaí mano, tu fez aquele negócio lá que te pedi ontem?', read: true, notReadMessagesValue: 0, online: true},
 ];
 
 let groupMessagesArray = [
     {
         id: 1, 
         groupName: 'Solitários e comprando fiado', 
-        usersOnGroup: [require('../../assets/img/user1.png'), require('../../assets/img/user2.png')], 
+        usersOnGroup: ['/user4.png', '/user6.jpg'], 
         lastMessageTime: '7 min', 
         lastMessageContent: 'Eaí mano, tu fez aquele negócio lá que te pedi ontem?', 
         read: true,
@@ -23,7 +26,7 @@ let groupMessagesArray = [
     {
         id: 2, 
         groupName: 'Trabalho', 
-        usersOnGroup: [require('../../assets/img/user3.png'), require('../../assets/img/user1.png')], 
+        usersOnGroup: ['/user6.jpg', '/user5.jpg'], 
         lastMessageTime: '20 min', 
         lastMessageContent: 'Eaí mano, tu fez aquele negócio lá que te pedi ontem?', 
         read: false,
@@ -32,9 +35,50 @@ let groupMessagesArray = [
 ];
 
 export default function Chats() {
+    
+    const PersonalMessagesArrayComponent = () => {
+        return(
+            <section className={styles.messageArea}>
+                <span className={styles.title}>Personal Messages</span>
+
+                <div className={styles.messageArray}>
+                    {personalMessagesArray.map((message) => {
+                        return(
+                            <section key={message.id} className={message.id === 2 && styles.messageIsSelected}>
+                                <img
+                                    width={700}
+                                    height={160}
+                                    src={message.userImg}
+                                    alt={message.userName}
+                                />
+
+                                <div className={styles.column}>
+                                    <div className={styles.topAreaInfo}>
+                                        <span className={styles.userName}>{message.userName}</span>
+                                        {message.online && <div className={styles.onlineIndicator} />}
+                                        <span className={styles.lastMessageTime}>{message.lastMessageTime}</span>
+                                    </div>
+
+                                    <div className={styles.bottomAreaInfo}>
+                                        <p className={!message.read && styles.lastMessageContent}>{message.lastMessageContent}</p>
+                                        {!message.read && 
+                                            <div className={styles.notReadIndicator}>
+                                                <span>{message.notReadMessagesValue}</span>
+                                            </div>
+                                        }
+                                    </div>
+                                </div>
+                            </section>
+                        )
+                    })}
+                </div>
+            </section>
+        )
+    }
+
     return(
         <div className={styles.container}>
-            <div className={styles.header}>
+            <section className={styles.header}>
                 <BiMenuAltLeft color="#000" size={30} />
 
                 <h2>Messages</h2>
@@ -42,14 +86,14 @@ export default function Chats() {
                 <div className={styles.messageNotRead}>
                     <span>6</span>
                 </div>
-            </div>
+            </section>
 
-            <div className={styles.searchArea}>
+            <section className={styles.searchArea}>
                 <BiSearchAlt2 color="#B2B2B2" size={20} />
                 <input placeholder="Search pepole, groups & messages" />
-            </div>
+            </section>
 
-            <div className={styles.filterArea}>
+            <section className={styles.filterArea}>
                 <div>
                     <RiMessage2Fill color="#3b00ff" size={25} />
                     <span style={{color: '#3b00ff'}}>All Messages</span>
@@ -69,7 +113,11 @@ export default function Chats() {
                     <FiFileText color="#9c9c9c" size={25} />
                     <span>Archived</span>
                 </div>
-            </div>
+            </section>
+
+            <section className={styles.messagesArea}>
+                <PersonalMessagesArrayComponent />
+            </section>
         </div>
     )
 }

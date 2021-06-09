@@ -1,15 +1,15 @@
 .container {
   width: 32.3rem;
   height: 100vh;
-  padding: 0 3.2rem;
   background-color: #fbfaff;
 
   .header {
     display: flex;
     flex-direction: row;
     align-items: center;
-    margin-top: 2.5rem;
+    margin-top: 2rem;
     width: auto;
+    padding: 0 3.2rem;
 
     h2 {
       font-size: 2.25rem;
@@ -42,7 +42,7 @@
     padding-left: 20px;
     height: 3rem;
     border-radius: 25px;
-    margin-top: 2rem;
+    margin: 2rem 3.2rem 0 3.2rem;
 
     input {
       flex: 1;
@@ -66,7 +66,8 @@
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    margin-top: 1.5rem;
+    margin-top: 2rem;
+    padding: 0 3.2rem;
 
     div {
       display: flex;
@@ -78,6 +79,116 @@
         font-weight: bold;
         font-size: 0.75rem;
         margin-top: 0.75rem;
+      }
+    }
+  }
+
+  .messagesArea {
+    margin-top: 2rem;
+
+    .messageArea {
+      .title {
+        color: var(--black);
+        font-size: 0.85rem;
+        margin: 0 3.2rem;
+      }
+
+      .messageArray {
+        margin-top: 1rem;
+
+        section {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          cursor: pointer;
+          height: 6rem;
+          border-bottom: 1px solid var(--gray-500);
+          padding: 0 3.2rem;
+          transition: 0.25s;
+
+          &:hover {
+            background: rgba(59, 0, 255, 0.03);
+          }
+
+          &.messageIsSelected {
+            background: linear-gradient(
+              90deg,
+              rgba(59, 0, 255, 0.08) 0%,
+              rgba(118, 77, 255, 0) 91%
+            );
+          }
+
+          img {
+            width: 3rem;
+            height: 3rem;
+            border-radius: 25px;
+            margin-right: 1.5rem;
+          }
+
+          .column {
+          }
+
+          .topAreaInfo {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+
+            .userName {
+              font-weight: bold;
+            }
+
+            .onlineIndicator {
+              background-color: var(--green);
+              width: 0.65rem;
+              height: 0.65rem;
+              border-radius: 10px;
+              margin-left: 1rem;
+            }
+
+            .lastMessageTime {
+              margin-left: auto;
+              color: var(--gray-350);
+              font-size: 0.75rem;
+            }
+          }
+
+          .bottomAreaInfo {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            margin-top: 1rem;
+
+            p {
+              color: var(--gray-350);
+              white-space: nowrap;
+              overflow: hidden;
+              text-overflow: ellipsis;
+              max-width: 85%;
+              font-size: 0.75rem;
+
+              &.lastMessageContent {
+                color: #000;
+                font-weight: bold;
+              }
+            }
+
+            .notReadIndicator {
+              background-color: var(--red);
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              margin-left: auto;
+              width: 1.6rem;
+              height: 1.6rem;
+              border-radius: 15px;
+
+              span {
+                color: var(--white);
+                font-size: 0.875rem;
+              }
+            }
+          }
+        }
       }
     }
   }
