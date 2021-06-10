@@ -21,7 +21,8 @@ let groupMessagesArray = [
         lastMessageTime: '7 min', 
         lastMessageContent: 'Eaí mano, tu fez aquele negócio lá que te pedi ontem?', 
         read: true,
-        notReadMessagesValue: 0
+        notReadMessagesValue: 0,
+        users: 5,
     },
     {
         id: 2, 
@@ -30,7 +31,8 @@ let groupMessagesArray = [
         lastMessageTime: 'yesterday', 
         lastMessageContent: 'Eaí mano, tu fez aquele negócio lá que te pedi ontem?', 
         read: false,
-        notReadMessagesValue: 10
+        notReadMessagesValue: 10,
+        users: 3,
     },
     {
         id: 3, 
@@ -39,7 +41,8 @@ let groupMessagesArray = [
         lastMessageTime: '20 min', 
         lastMessageContent: 'Eaí mano, tu fez aquele negócio lá que te pedi ontem?', 
         read: false,
-        notReadMessagesValue: 5
+        notReadMessagesValue: 5,
+        users: 2,
     },
     {
         id: 4, 
@@ -48,7 +51,8 @@ let groupMessagesArray = [
         lastMessageTime: '20 min', 
         lastMessageContent: 'Eaí mano, tu fez aquele negócio lá que te pedi ontem?', 
         read: true,
-        notReadMessagesValue: 0
+        notReadMessagesValue: 0,
+        users: 10,
     },
 ];
 
@@ -104,7 +108,17 @@ export default function Chats() {
                         return(
                             <section key={message.id} className={message.id === 2 && styles.messageIsSelected}>
                                 <div className={styles.imgGroup}>
-                                    <img src="/user1.png" />
+                                    {message.usersOnGroup.map((item) => {
+                                        return(
+                                            <img src={item} />
+                                        )
+                                    })}
+
+                                    {message.users > 2 && 
+                                        <div>
+                                            <span>{message.users - 2}</span>
+                                        </div>
+                                    }
                                 </div>
 
                                 <div className={styles.column}>
