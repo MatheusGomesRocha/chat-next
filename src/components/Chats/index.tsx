@@ -1,5 +1,5 @@
+import { useState } from 'react';
 import styles from './styles.module.scss';
-import Image from 'next/image';
 
 import { BiMenuAltLeft, BiSearchAlt2 } from 'react-icons/bi';
 import { RiMessage2Fill } from 'react-icons/ri';
@@ -15,6 +15,7 @@ let personalMessagesArray = [
 
 let groupMessagesArray = [
     {
+        globalId: 4,
         id: 1, 
         groupName: 'Solitários e comprando fiado', 
         usersOnGroup: ['/user4.png', '/user6.jpg'], 
@@ -25,6 +26,7 @@ let groupMessagesArray = [
         users: 5,
     },
     {
+        globalId: 5,
         id: 2, 
         groupName: 'Trabalho', 
         usersOnGroup: ['/user6.jpg', '/user5.jpg'], 
@@ -35,6 +37,7 @@ let groupMessagesArray = [
         users: 3,
     },
     {
+        globalId: 6,
         id: 3, 
         groupName: 'Comilança solta', 
         usersOnGroup: ['/user1.png', '/user3.jpg'], 
@@ -45,6 +48,7 @@ let groupMessagesArray = [
         users: 2,
     },
     {
+        globalId: 7,
         id: 4, 
         groupName: 'Fofoca', 
         usersOnGroup: ['/user5.jpg', '/user2.jpg'], 
@@ -57,6 +61,7 @@ let groupMessagesArray = [
 ];
 
 export default function Chats() {
+    const [selectShowMessage, setSelectShowMessage] = useState(0);
     
     const PersonalMessagesArrayComponent = () => {
         return(
@@ -66,7 +71,7 @@ export default function Chats() {
                 <div className={styles.messageArray}>
                     {personalMessagesArray.map((message) => {
                         return(
-                            <section key={message.id} className={message.id === 2 && styles.messageIsSelected}>
+                            <section onClick={() => setSelectShowMessage(message.id)} key={message.id} className={message.id === selectShowMessage ? styles.messageIsSelected : undefined}>
                                 <img
                                     width={700}
                                     height={160}
@@ -82,7 +87,7 @@ export default function Chats() {
                                     </div>
 
                                     <div className={styles.bottomAreaInfo}>
-                                        <p className={!message.read && styles.lastMessageContent}>{message.lastMessageContent}</p>
+                                        <p className={!message.read ? styles.lastMessageContent : undefined}>{message.lastMessageContent}</p>
                                         {!message.read && 
                                             <div className={styles.notReadIndicator}>
                                                 <span>{message.notReadMessagesValue}</span>
@@ -106,11 +111,11 @@ export default function Chats() {
                 <div className={styles.messageArray}>
                     {groupMessagesArray.map((message) => {
                         return(
-                            <section key={message.id} className={message.id === 2 && styles.messageIsSelected}>
+                            <section onClick={() => setSelectShowMessage(message.globalId)} key={message.id} className={message.globalId === selectShowMessage ? styles.messageIsSelected : undefined}>
                                 <div className={styles.imgGroup}>
-                                    {message.usersOnGroup.map((item) => {
+                                    {message.usersOnGroup.map((item, index) => {
                                         return(
-                                            <img src={item} />
+                                            <img key={index} src={item} />
                                         )
                                     })}
 
@@ -128,7 +133,7 @@ export default function Chats() {
                                     </div>
 
                                     <div className={styles.bottomAreaInfo}>
-                                        <p className={!message.read && styles.lastMessageContent}>{message.lastMessageContent}</p>
+                                        <p className={!message.read ? styles.lastMessageContent : undefined}>{message.lastMessageContent}</p>
                                         {!message.read && 
                                             <div className={styles.notReadIndicator}>
                                                 <span>{message.notReadMessagesValue}</span>
