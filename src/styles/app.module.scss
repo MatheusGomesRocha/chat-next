@@ -1,6 +1,21 @@
 .wrapper {
   display: flex;
 
+  ::-webkit-scrollbar {
+    width: 7px;
+  }
+
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: var(--gray-500);
+    border-radius: 10px;
+  }
+
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #ddd;
+  }
+
   main {
     flex: 1;
   }
