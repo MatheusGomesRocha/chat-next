@@ -62,6 +62,10 @@ let groupMessagesArray = [
 
 export default function Chats() {
     const [selectShowMessage, setSelectShowMessage] = useState(0);
+    const [hoverIcon1, setHoverIcon1] = useState(true);
+    const [hoverIcon2, setHoverIcon2] = useState(false);
+    const [hoverIcon3, setHoverIcon3] = useState(false);
+    const [hoverIcon4, setHoverIcon4] = useState(false);
     
     const PersonalMessagesArrayComponent = () => {
         return(
@@ -167,23 +171,23 @@ export default function Chats() {
             </section>
 
             <section className={styles.filterArea}>
-                <div>
+                <div >
                     <RiMessage2Fill color="#3b00ff" size={25} />
                     <span style={{color: '#3b00ff'}}>All Messages</span>
                 </div>
                 
-                <div>
-                    <FiPhone color="#9c9c9c" size={25} />
+                <div onMouseOver={() => setHoverIcon2(true)} onMouseOut={() => setHoverIcon2(false)}>
+                    <FiPhone style={{transition: '0.25s'}} color={hoverIcon2 ? '#3b00ff' : '#9c9c9c'} size={25} />
                     <span>Calls</span>
                 </div>
 
-                <div>
-                    <TiContacts color="#9c9c9c" size={25} />
+                <div onMouseOver={() => setHoverIcon3(true)} onMouseOut={() => setHoverIcon3(false)}>
+                    <TiContacts style={{transition: '0.25s'}} color={hoverIcon3 ? '#3b00ff' : '#9c9c9c'} size={25} />
                     <span>Contacts</span>
                 </div>
 
-                <div>
-                    <FiFileText color="#9c9c9c" size={25} />
+                <div onMouseOver={() => setHoverIcon4(true)} onMouseOut={() => setHoverIcon4(false)}>
+                    <FiFileText style={{transition: '0.25s'}} color={hoverIcon4 ? '#3b00ff' : '#9c9c9c'} size={25} />
                     <span>Archived</span>
                 </div>
             </section>

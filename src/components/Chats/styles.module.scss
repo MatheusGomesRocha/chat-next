@@ -87,12 +87,20 @@
       display: flex;
       flex-direction: column;
       align-items: center;
+      cursor: pointer;
+
+      &:hover {
+        span {
+          color: var(--purple);
+        }
+      }
 
       span {
         color: var(--gray-350);
         font-weight: bold;
         font-size: 0.75rem;
         margin-top: 0.75rem;
+        transition: 0.25s;
       }
     }
   }
