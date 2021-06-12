@@ -1,5 +1,48 @@
 .container {
-  width: 100%;
-  background-color: blue;
-  height: 200px;
+  background-color: var(--purple);
+  display: flex;
+  align-items: center;
+  height: 12.5rem;
+  padding: 0 5rem;
+
+  .left {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    img {
+      width: 3.6rem;
+      height: 3.6rem;
+      border-radius: 30px;
+    }
+
+    .leftColumn {
+      margin-left: 1rem;
+
+      .userName {
+        font-size: 1.5rem;
+        font-weight: bold;
+      }
+
+      .isOnline {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        margin-top: 0.5rem;
+
+        .onlineIndicator {
+          background-color: var(--green);
+          width: 0.45rem;
+          height: 0.45rem;
+          border-radius: 10px;
+          margin-right: 1rem;
+        }
+
+        span {
+          font-size: 0.75rem;
+          color: var(--gray-350);
+        }
+      }
+    }
+  }
 }
