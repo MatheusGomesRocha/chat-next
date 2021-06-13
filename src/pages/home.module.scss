@@ -94,6 +94,11 @@
       border-radius: 35px;
       margin-left: 1rem;
       cursor: pointer;
+      transition: filter 250ms;
+
+      &:hover {
+        filter: brightness(0.9);
+      }
     }
   }
 }
