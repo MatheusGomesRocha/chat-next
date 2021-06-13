@@ -1,5 +1,9 @@
 import { useEffect, useState } from 'react';
 import styles from './home.module.scss';
+import { BsFillMicFill } from 'react-icons/bs';
+import { FiPaperclip } from 'react-icons/fi';
+import { BiSmile } from 'react-icons/bi';
+import { IoIosSend } from 'react-icons/io';
 
 let chatArray = [
   {id: 1, chat: [
@@ -45,6 +49,28 @@ export default function Home() {
             </div>
           )
         })}
+      </div>
+
+      <div className={styles.sendMessageArea}>
+        <div className={styles.typeMessage}>
+          <div>
+            <BsFillMicFill color="#B2B2B2" size={25} />
+          </div>
+
+          <input placeholder="Type your message..." />
+
+          <div>
+            <FiPaperclip color="#B2B2B2" size={25} />
+          </div>
+
+          <div>
+            <BiSmile color="#B2B2B2" size={25} />
+          </div>
+        </div>
+
+        <div className={styles.sendMessageButton}>
+          <IoIosSend color="#3b00ff" size={30} />
+        </div>
       </div>
     </div>
   )

@@ -1,6 +1,7 @@
 .container {
-  max-height: calc(100vh - 8.5rem);
-  padding: 0 5rem;
+  max-height: calc(100vh - 15rem);
+  width: 100%;
+  padding: 0 3rem;
   overflow-y: scroll;
 
   .chatContent {
@@ -9,7 +10,7 @@
     .message {
       display: flex;
       flex-direction: row;
-      align-items: center;
+      align-items: flex-end;
       justify-content: flex-end;
 
       & + .message {
@@ -30,16 +31,69 @@
         max-width: 30rem;
         padding: 0 1rem;
         border-radius: 10px;
+        margin-left: 1rem;
+        border-bottom-right-radius: 0;
 
         &#authorOther {
           background-color: var(--purple);
           color: var(--white);
+          border-bottom-left-radius: 0;
         }
 
         span {
           font-size: 0.875rem;
+          font-weight: bold;
         }
       }
+    }
+  }
+
+  .sendMessageArea {
+    display: flex;
+    flex-direction: row;
+    position: fixed;
+    bottom: 2rem;
+    height: 4rem;
+    width: calc(100% - 39.3rem);
+
+    .typeMessage {
+      background-color: var(--white);
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      padding: 0 2rem 0 1rem;
+      border-radius: 35px;
+      border: 1px solid var(--gray-500);
+      width: 100%;
+
+      div {
+        margin-left: 1rem;
+        cursor: pointer;
+      }
+
+      input {
+        outline: 0;
+        border: 0;
+        flex: 1;
+        font-size: 1rem;
+        padding-left: 1rem;
+
+        &::placeholder {
+          color: var(--gray-200);
+        }
+      }
+    }
+
+    .sendMessageButton {
+      background-color: #f7f5ff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 4rem;
+      height: 4rem;
+      border-radius: 35px;
+      margin-left: 1rem;
+      cursor: pointer;
     }
   }
 }
