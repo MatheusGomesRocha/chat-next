@@ -5,6 +5,7 @@ import { BiMenuAltLeft, BiSearchAlt2 } from 'react-icons/bi';
 import { RiMessage2Fill } from 'react-icons/ri';
 import { FiPhone, FiFileText } from 'react-icons/fi';
 import { TiContacts } from 'react-icons/ti';
+import { AiOutlinePlus } from 'react-icons/ai';
 
 
 let personalMessagesArray = [
@@ -197,6 +198,10 @@ export default function Chats() {
 
                 <GroupMessagesArrayComponent />
             </section>
+
+            <div className={styles.newChatButton}>
+                <AiOutlinePlus color="#fff" size={25} />
+            </div>
         </div>
     )
 }

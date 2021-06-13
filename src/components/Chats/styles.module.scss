@@ -3,6 +3,7 @@
   height: 100vh;
   background-color: #fbfaff;
   overflow-y: scroll;
+  position: relative;
 
   ::-webkit-scrollbar {
     width: 1em;
@@ -260,4 +261,23 @@
       } // .messageArray
     } // .messageArea
   } // .messagesArea
+
+  .newChatButton {
+    background-color: var(--purple);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    bottom: 4rem;
+    left: 25rem;
+    width: 4rem;
+    height: 4rem;
+    border-radius: 35px;
+    cursor: pointer;
+    transition: filter 250ms;
+
+    &:hover {
+      filter: brightness(0.8);
+    }
+  }
 } // .container-
