@@ -1,4 +1,45 @@
-.div {
-  background-color: #f7f8fa;
-  height: calc(100vh - 12.5rem);
+.container {
+  max-height: calc(100vh - 8.5rem);
+  padding: 0 5rem;
+  overflow-y: scroll;
+
+  .chatContent {
+    padding: 2rem 0;
+
+    .message {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: flex-end;
+
+      & + .message {
+        margin-top: 1rem;
+      }
+
+      img {
+        width: 2rem;
+        height: 2rem;
+        border-radius: 20px;
+      }
+
+      .messageContent {
+        background-color: #f7f5ff;
+        display: flex;
+        align-items: center;
+        min-height: 4rem;
+        max-width: 30rem;
+        padding: 0 1rem;
+        border-radius: 10px;
+
+        &#authorOther {
+          background-color: var(--purple);
+          color: var(--white);
+        }
+
+        span {
+          font-size: 0.875rem;
+        }
+      }
+    }
+  }
 }
